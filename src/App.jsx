@@ -91,7 +91,7 @@ export default function CategoryTranslator() {
 
         <div className="category-row">
           <div className="form-group">
-            <label>Category Level 1 (EN)</label>
+            <label>Level 1 (EN)</label>
             <select
               className="form-control"
               value={selectedCategory}
@@ -116,7 +116,7 @@ export default function CategoryTranslator() {
         {options1.length > 0 && (
           <div className="category-row">
             <div className="form-group">
-              <label>Category Level 2 (EN)</label>
+              <label>Level 2 (EN)</label>
               <select
                 className="form-control"
                 value={subCategory1}
@@ -142,7 +142,7 @@ export default function CategoryTranslator() {
         {options2.length > 0 && (
           <div className="category-row">
             <div className="form-group">
-              <label>Category Level 3 (EN)</label>
+              <label>Level 3 (EN)</label>
               <select
                 className="form-control"
                 value={subCategory2}

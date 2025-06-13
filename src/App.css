@@ -44,7 +44,7 @@
 /* Custom styles for the category translator */
 
 .category-translator-container {
-  max-width: 960px;
+  max-width: 1200px;
   margin: 0 auto;
   padding: 2rem;
   font-family: sans-serif;
@@ -52,15 +52,16 @@
 
 .category-translator-title {
   text-align: center;
-  font-size: 1.75rem;
+  font-size: 2.5rem;
   font-weight: bold;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  color: #fff;
 }
 
 .category-grid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 1.5rem;
+  gap: 2rem;
 }
 
 @media (min-width: 768px) {
@@ -71,10 +72,11 @@
 
 .form-section,
 .result-section {
-  background: #393939;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  background: #2c2c2c;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
+  min-height: 450px;
 }
 
 .form-group {
@@ -83,15 +85,18 @@
 
 .form-group label {
   display: block;
-  margin-bottom: 0.25rem;
+  margin-bottom: 0.5rem;
   font-weight: 600;
+  color: #ddd;
 }
 
 .form-control {
   width: 100%;
   padding: 0.5rem;
-  border: 1px solid #ccc;
+  border: 1px solid #555;
   border-radius: 4px;
+  background: #1a1a1a;
+  color: #fff;
 }
 
 .language-select {
@@ -99,9 +104,19 @@
 }
 
 .result-box {
-  background: #242424;
-  padding: 0.75rem;
+  background: #1e1e1e;
+  padding: 1rem;
   border-radius: 4px;
   font-size: 1rem;
   margin-bottom: 1rem;
+}
+
+.footer {
+  margin-top: 2rem;
+  text-align: center;
+  color: #888;
+}
+
+.footer a {
+  color: #646cff;
 }

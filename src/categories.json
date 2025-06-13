@@ -1,0 +1,27 @@
+{
+    "Arts & Photography": {
+      "de": "Film, Kunst & Kultur",
+      "es": "Artes y Fotografía",
+      "fr": "Arts et Photographie",
+      "it": "Arte e Fotografia"
+    },
+    "Biographies & Memoirs": {
+      "de": "Biografien & Erinnerungen",
+      "es": "Biografías y Memorias",
+      "fr": "Biographies et Mémoires",
+      "it": "Biografie e Ricordi"
+    },
+    "Business & Money": {
+      "de": "Business & Karriere",
+      "es": "Negocios y Dinero",
+      "fr": "Affaires et Argent",
+      "it": "Affari e Denaro"
+    },
+    "Comics & Graphic Novels": {
+      "de": "Comics & Mangas",
+      "es": "Cómics y Novelas Gráficas",
+      "fr": "Bandes Dessinées",
+      "it": "Fumetti e Graphic Novel"
+    }
+  }
+  

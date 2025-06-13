@@ -1,5 +1,6 @@
 import { useState, useEffect } from "react";
 import categoryData from "./categories.json";
+import "./App.css";
 
 export default function CategoryTranslator() {
   const [selectedCategory, setSelectedCategory] = useState("");
@@ -71,14 +72,14 @@ export default function CategoryTranslator() {
   };
 
   return (
-    <div className="p-4 max-w-4xl mx-auto">
-      <h1 className="text-2xl font-bold mb-6 text-center">KDP Category Translator</h1>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="bg-white p-4 rounded shadow space-y-4">
-          <div>
-            <label className="block mb-1 font-semibold">Category Level 1 (EN)</label>
+    <div className="category-translator-container">
+      <h1 className="category-translator-title">KDP Category Translator</h1>
+      <div className="category-grid">
+        <div className="form-section">
+          <div className="form-group">
+            <label>Category Level 1 (EN)</label>
             <select
-              className="w-full p-2 border rounded"
+              className="form-control"
               value={selectedCategory}
               onChange={(e) => {
                 setSelectedCategory(e.target.value);
@@ -94,10 +95,10 @@ export default function CategoryTranslator() {
           </div>
 
           {options1.length > 0 && (
-            <div>
-              <label className="block mb-1 font-semibold">Category Level 2 (EN)</label>
+            <div className="form-group">
+              <label>Category Level 2 (EN)</label>
               <select
-                className="w-full p-2 border rounded"
+                className="form-control"
                 value={subCategory1}
                 onChange={(e) => {
                   setSubCategory1(e.target.value);
@@ -114,10 +115,10 @@ export default function CategoryTranslator() {
           )}
 
           {options2.length > 0 && (
-            <div>
-              <label className="block mb-1 font-semibold">Category Level 3 (EN)</label>
+            <div className="form-group">
+              <label>Category Level 3 (EN)</label>
               <select
-                className="w-full p-2 border rounded"
+                className="form-control"
                 value={subCategory2}
                 onChange={(e) => {
                   setSubCategory2(e.target.value);
@@ -133,10 +134,10 @@ export default function CategoryTranslator() {
           )}
 
           {options3.length > 0 && (
-            <div>
-              <label className="block mb-1 font-semibold">Category Level 4 (EN)</label>
+            <div className="form-group">
+              <label>Category Level 4 (EN)</label>
               <select
-                className="w-full p-2 border rounded"
+                className="form-control"
                 value={subCategory3}
                 onChange={(e) => setSubCategory3(e.target.value)}
               >
@@ -149,11 +150,11 @@ export default function CategoryTranslator() {
           )}
         </div>
 
-        <div className="bg-white p-4 rounded shadow space-y-4">
-          <div>
-            <label className="block mb-1 font-semibold">Select Language</label>
+        <div className="result-section">
+          <div className="language-select">
+            <label>Select Language</label>
             <select
-              className="w-full p-2 border rounded"
+              className="form-control"
               value={language}
               onChange={(e) => setLanguage(e.target.value)}
             >
@@ -164,19 +165,19 @@ export default function CategoryTranslator() {
             </select>
           </div>
 
-          <div className="p-4 bg-gray-100 rounded text-lg">
+          <div className="result-box">
             <strong>Translated Category Level 1:</strong> <br /> {getTranslated(1)}
           </div>
 
-          <div className="p-4 bg-gray-100 rounded text-lg">
+          <div className="result-box">
             <strong>Translated Category Level 2:</strong> <br /> {getTranslated(2)}
           </div>
 
-          <div className="p-4 bg-gray-100 rounded text-lg">
+          <div className="result-box">
             <strong>Translated Category Level 3:</strong> <br /> {getTranslated(3)}
           </div>
 
-          <div className="p-4 bg-gray-100 rounded text-lg">
+          <div className="result-box">
             <strong>Translated Category Level 4:</strong> <br /> {getTranslated(4)}
           </div>
         </div>

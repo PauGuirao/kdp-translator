@@ -75,7 +75,21 @@ export default function CategoryTranslator() {
     <div className="category-translator-container">
       <h1 className="category-translator-title">KDP Category Translator</h1>
       <div className="category-grid">
-        <div className="form-section">
+        <div className="language-select">
+          <label>Select Language</label>
+          <select
+            className="form-control"
+            value={language}
+            onChange={(e) => setLanguage(e.target.value)}
+          >
+            <option value="de">German</option>
+            <option value="es">Spanish</option>
+            <option value="fr">French</option>
+            <option value="it">Italian</option>
+          </select>
+        </div>
+
+        <div className="category-row">
           <div className="form-group">
             <label>Category Level 1 (EN)</label>
             <select
@@ -93,8 +107,14 @@ export default function CategoryTranslator() {
               ))}
             </select>
           </div>
+          <div className="translation-group">
+            <div className="result-title">Translated Category Level 1:</div>
+            <div className="result-box">{getTranslated(1)}</div>
+          </div>
+        </div>
 
-          {options1.length > 0 && (
+        {options1.length > 0 && (
+          <div className="category-row">
             <div className="form-group">
               <label>Category Level 2 (EN)</label>
               <select
@@ -112,9 +132,15 @@ export default function CategoryTranslator() {
                 ))}
               </select>
             </div>
-          )}
+            <div className="translation-group">
+              <div className="result-title">Translated Category Level 2:</div>
+              <div className="result-box">{getTranslated(2)}</div>
+            </div>
+          </div>
+        )}
 
-          {options2.length > 0 && (
+        {options2.length > 0 && (
+          <div className="category-row">
             <div className="form-group">
               <label>Category Level 3 (EN)</label>
               <select
@@ -131,9 +157,15 @@ export default function CategoryTranslator() {
                 ))}
               </select>
             </div>
-          )}
+            <div className="translation-group">
+              <div className="result-title">Translated Category Level 3:</div>
+              <div className="result-box">{getTranslated(3)}</div>
+            </div>
+          </div>
+        )}
 
-          {options3.length > 0 && (
+        {options3.length > 0 && (
+          <div className="category-row">
             <div className="form-group">
               <label>Category Level 4 (EN)</label>
               <select
@@ -147,40 +179,12 @@ export default function CategoryTranslator() {
                 ))}
               </select>
             </div>
-          )}
-        </div>
-
-        <div className="result-section">
-          <div className="language-select">
-            <label>Select Language</label>
-            <select
-              className="form-control"
-              value={language}
-              onChange={(e) => setLanguage(e.target.value)}
-            >
-              <option value="de">German</option>
-              <option value="es">Spanish</option>
-              <option value="fr">French</option>
-              <option value="it">Italian</option>
-            </select>
+            <div className="translation-group">
+              <div className="result-title">Translated Category Level 4:</div>
+              <div className="result-box">{getTranslated(4)}</div>
+            </div>
           </div>
-
-          <div className="result-box">
-            <strong>Translated Category Level 1:</strong> <br /> {getTranslated(1)}
-          </div>
-
-          <div className="result-box">
-            <strong>Translated Category Level 2:</strong> <br /> {getTranslated(2)}
-          </div>
-
-          <div className="result-box">
-            <strong>Translated Category Level 3:</strong> <br /> {getTranslated(3)}
-          </div>
-
-          <div className="result-box">
-            <strong>Translated Category Level 4:</strong> <br /> {getTranslated(4)}
-          </div>
-        </div>
+        )}
       </div>
       <footer className="footer">
         Created by{' '}

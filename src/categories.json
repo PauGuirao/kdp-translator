@@ -3,15 +3,7 @@
       "de": {
         "label": "Film, Kunst & Kultur",
         "children": {
-          "Photography": { "de": "Fotografie" },
-          "Art History": { "de": "Kunstgeschichte" }
-        }
-      },
-      "es": {
-        "label": "Artes y Fotografía",
-        "children": {
-          "Photography": { "es": "Fotografía" },
-          "Art History": { "es": "Historia del Arte" }
+          "test": { "de": "test" }
         }
       }
     },
@@ -19,15 +11,239 @@
       "de": {
         "label": "Biografien & Erinnerungen",
         "children": {
-          "Historical": { "de": "Historische Biografien" },
-          "Political": { "de": "Politische Biografien" }
+          "test": { "de": "test" }
         }
-      },
-      "es": {
-        "label": "Biografías y Memorias",
+      }
+    },
+    "Business & Money": {
+      "de": {
+        "label": "Business & Karriere",
         "children": {
-          "Historical": { "es": "Biografías Históricas" },
-          "Political": { "es": "Biografías Políticas" }
+          "test": { "de": "test" }
+        }
+      }
+    },
+    "Children's Books": {
+      "de": {
+        "label": "Kinderbücher",
+        "children": {
+          "test": { "de": "test" }
+        }
+      }
+    },
+    "Comics & Graphic Novels": {
+      "de": {
+        "label": "Comics & Mangas",
+        "children": {
+          "test": { "de": "test" }
+        }
+      }
+    },
+    "Computers & Technology": {
+      "de": {
+        "label": "Computer & Internet",
+        "children": {
+          "test": { "de": "test" }
+        }
+      }
+    },
+    "Cookbooks, Food & Wine": {
+      "de": {
+        "label": "Kochen & Genießen",
+        "children": {
+          "test": { "de": "test" }
+        }
+      }
+    },
+    "Crafts, Hobbies & Home": {
+      "de": {
+        "label": "Freizeit, Haus & Garten",
+        "children": {
+          "test": { "de": "test" }
+        }
+      }
+    },
+    "Education & Teaching": {
+      "de": {
+        "label": "Schule & Lernen",
+        "children": {
+          "test": { "de": "test" }
+        }
+      }
+    },
+    "Engineering & Transportation": {
+      "de": {
+        "label": "no exact match",
+        "children": {
+          "test": { "de": "test" }
+        }
+      }
+    },
+    "Health, Fitness & Dieting": {
+      "de": {
+        "label": "Sport & Fitness",
+        "children": {
+          "test": { "de": "test" }
+        }
+      }
+    },
+    "History": {
+      "de": {
+        "label": "Politik & Geschichte",
+        "children": {
+          "test": { "de": "test" }
+        }
+      }
+    },
+    "Humor & Entertainment": {
+      "de": {
+        "label": "Film, Kunst & Kultur",
+        "children": {
+          "test": { "de": "test" }
+        }
+      }
+    },
+    "LGBTQ+ Books": {
+      "de": {
+        "label": "LGBTQ+",
+        "children": {
+          "test": { "de": "test" }
+        }
+      }
+    },
+    "Law": {
+      "de": {
+        "label": "Recht",
+        "children": {
+          "test": { "de": "test" }
+        }
+      }
+    },
+    "Literature & Fiction": {
+      "de": {
+        "label": "Literatur & Fiktion",
+        "children": {
+          "test": { "de": "test" }
+        }
+      }
+    },
+    "Medical Books": {
+      "de": {
+        "label": "Medizin",
+        "children": {
+          "test": { "de": "test" }
+        }
+      }
+    },
+    "Mystery, Thriller & Suspense": {
+      "de": {
+        "label": "Krimis & Thriller",
+        "children": {
+          "test": { "de": "test" }
+        }
+      }
+    },
+    "Parenting & Relationships": {
+      "de": {
+        "label": "no exact match",
+        "children": {
+          "test": { "de": "test" }
+        }
+      }
+    },
+    "Politics & Social Sciences": {
+      "de": {
+        "label": "Sozialwissenschaft",
+        "children": {
+          "test": { "de": "test" }
+        }
+      }
+    },
+    "Reference": {
+      "de": {
+        "label": "Fachbücher",
+        "children": {
+          "test": { "de": "test" }
+        }
+      }
+    },
+    "Religion & Spirituality": {
+      "de": {
+        "label": "Religion & Glaube",
+        "children": {
+          "test": { "de": "test" }
+        }
+      }
+    },
+    "Romance": {
+      "de": {
+        "label": "Liebesromane",
+        "children": {
+          "test": { "de": "test" }
+        }
+      }
+    },
+    "Science & Math": {
+      "de": {
+        "label": "Naturwissenschaften & Technik",
+        "children": {
+          "test": { "de": "test" }
+        }
+      }
+    },
+    "Science Fiction & Fantasy": {
+      "de": {
+        "label": "Fantasy & Science Fiction",
+        "children": {
+          "test": { "de": "test" }
+        }
+      }
+    },
+    "Self-Help": {
+      "de": {
+        "label": "Ratgeber",
+        "children": {
+          "test": { "de": "test" }
+        }
+      }
+    },
+    "Sports & Outdoors": {
+      "de": {
+        "label": "Sport & Fitness",
+        "children": {
+          "test": { "de": "test" }
+        }
+      }
+    },
+    "Teen & Young Adult": {
+      "de": {
+        "label": "Jugendbücher",
+        "children": {
+          "test": { "de": "test" }
+        }
+      }
+    },
+    "Test Preparation": {
+      "de": {
+        "label": "no exact match",
+        "children": {
+          "test": { "de": "test" }
+        }
+      }
+    },
+    "Travel": {
+      "de": {
+        "label": "Reise & Abenteuer",
+        "children": {
+          "test": { "de": "test" }
+        }
+      }
+    },
+    "Non-Classifiable": {
+      "de": {
+        "label": "Non-Classifiable",
+        "children": {
+          "test": { "de": "test" }
         }
       }
     }

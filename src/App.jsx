@@ -184,8 +184,8 @@ export default function CategoryTranslator() {
       </div>
       <footer className="footer">
         Created by{' '}
-        <a href="https://twitter.com/yourtwitter" target="_blank" rel="noopener noreferrer">
-          @yourtwitter
+        <a href="https://twitter.com/CactusGuica" target="_blank" rel="noopener noreferrer">
+          @CactusGuica
         </a>
       </footer>
     </div>

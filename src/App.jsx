@@ -107,15 +107,13 @@ export default function CategoryTranslator() {
               ))}
             </select>
           </div>
-          {selectedCategory && (
-            <>
-              <div className="arrow">→ Resultado</div>
-              <div className="translation-group">
-                <div className="result-title">Translated Category Level 1:</div>
-                <div className="result-box">{getTranslated(1)}</div>
-              </div>
-            </>
-          )}
+
+            <div className="arrow">→</div>
+            <div className="translation-group">
+              <div className="result-title">Translated Category Level 1:</div>
+              <div className="result-box">{getTranslated(1)}</div>
+            </div>
+
         </div>
 
         {options1.length > 0 && (
@@ -139,7 +137,7 @@ export default function CategoryTranslator() {
             </div>
             {subCategory1 && (
               <>
-                <div className="arrow">→ Resultado</div>
+                <div className="arrow">→</div>
                 <div className="translation-group">
                   <div className="result-title">Translated Category Level 2:</div>
                   <div className="result-box">{getTranslated(2)}</div>
@@ -169,7 +167,7 @@ export default function CategoryTranslator() {
             </div>
             {subCategory2 && (
               <>
-                <div className="arrow">→ Resultado</div>
+                <div className="arrow">→</div>
                 <div className="translation-group">
                   <div className="result-title">Translated Category Level 3:</div>
                   <div className="result-box">{getTranslated(3)}</div>
@@ -196,7 +194,7 @@ export default function CategoryTranslator() {
             </div>
             {subCategory3 && (
               <>
-                <div className="arrow">→ Resultado</div>
+                <div className="arrow">→</div>
                 <div className="translation-group">
                   <div className="result-title">Translated Category Level 4:</div>
                   <div className="result-box">{getTranslated(4)}</div>

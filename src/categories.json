@@ -1,27 +1,35 @@
 {
     "Arts & Photography": {
-      "de": "Film, Kunst & Kultur",
-      "es": "Artes y Fotografía",
-      "fr": "Arts et Photographie",
-      "it": "Arte e Fotografia"
+      "de": {
+        "label": "Film, Kunst & Kultur",
+        "children": {
+          "Photography": { "de": "Fotografie" },
+          "Art History": { "de": "Kunstgeschichte" }
+        }
+      },
+      "es": {
+        "label": "Artes y Fotografía",
+        "children": {
+          "Photography": { "es": "Fotografía" },
+          "Art History": { "es": "Historia del Arte" }
+        }
+      }
     },
     "Biographies & Memoirs": {
-      "de": "Biografien & Erinnerungen",
-      "es": "Biografías y Memorias",
-      "fr": "Biographies et Mémoires",
-      "it": "Biografie e Ricordi"
-    },
-    "Business & Money": {
-      "de": "Business & Karriere",
-      "es": "Negocios y Dinero",
-      "fr": "Affaires et Argent",
-      "it": "Affari e Denaro"
-    },
-    "Comics & Graphic Novels": {
-      "de": "Comics & Mangas",
-      "es": "Cómics y Novelas Gráficas",
-      "fr": "Bandes Dessinées",
-      "it": "Fumetti e Graphic Novel"
+      "de": {
+        "label": "Biografien & Erinnerungen",
+        "children": {
+          "Historical": { "de": "Historische Biografien" },
+          "Political": { "de": "Politische Biografien" }
+        }
+      },
+      "es": {
+        "label": "Biografías y Memorias",
+        "children": {
+          "Historical": { "es": "Biografías Históricas" },
+          "Political": { "es": "Biografías Políticas" }
+        }
+      }
     }
   }
   

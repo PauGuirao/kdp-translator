@@ -16,7 +16,6 @@ export default function CategoryTranslator() {
   useEffect(() => {
     const categoryKeys = Object.keys(categoryData);
     setCategories(categoryKeys);
-    setSelectedCategory(categoryKeys[0]);
   }, []);
 
   const getFirstLang = (cat) => Object.keys(categoryData[cat] || {})[0];
@@ -102,15 +101,21 @@ export default function CategoryTranslator() {
                 setSubCategory3("");
               }}
             >
+              <option value="">Select...</option>
               {categories.map((cat) => (
                 <option key={cat} value={cat}>{cat}</option>
               ))}
             </select>
           </div>
-          <div className="translation-group">
-            <div className="result-title">Translated Category Level 1:</div>
-            <div className="result-box">{getTranslated(1)}</div>
-          </div>
+          {selectedCategory && (
+            <>
+              <div className="arrow">→ Resultado</div>
+              <div className="translation-group">
+                <div className="result-title">Translated Category Level 1:</div>
+                <div className="result-box">{getTranslated(1)}</div>
+              </div>
+            </>
+          )}
         </div>
 
         {options1.length > 0 && (
@@ -132,10 +137,15 @@ export default function CategoryTranslator() {
                 ))}
               </select>
             </div>
-            <div className="translation-group">
-              <div className="result-title">Translated Category Level 2:</div>
-              <div className="result-box">{getTranslated(2)}</div>
-            </div>
+            {subCategory1 && (
+              <>
+                <div className="arrow">→ Resultado</div>
+                <div className="translation-group">
+                  <div className="result-title">Translated Category Level 2:</div>
+                  <div className="result-box">{getTranslated(2)}</div>
+                </div>
+              </>
+            )}
           </div>
         )}
 
@@ -157,10 +167,15 @@ export default function CategoryTranslator() {
                 ))}
               </select>
             </div>
-            <div className="translation-group">
-              <div className="result-title">Translated Category Level 3:</div>
-              <div className="result-box">{getTranslated(3)}</div>
-            </div>
+            {subCategory2 && (
+              <>
+                <div className="arrow">→ Resultado</div>
+                <div className="translation-group">
+                  <div className="result-title">Translated Category Level 3:</div>
+                  <div className="result-box">{getTranslated(3)}</div>
+                </div>
+              </>
+            )}
           </div>
         )}
 
@@ -179,10 +194,15 @@ export default function CategoryTranslator() {
                 ))}
               </select>
             </div>
-            <div className="translation-group">
-              <div className="result-title">Translated Category Level 4:</div>
-              <div className="result-box">{getTranslated(4)}</div>
-            </div>
+            {subCategory3 && (
+              <>
+                <div className="arrow">→ Resultado</div>
+                <div className="translation-group">
+                  <div className="result-title">Translated Category Level 4:</div>
+                  <div className="result-box">{getTranslated(4)}</div>
+                </div>
+              </>
+            )}
           </div>
         )}
       </div>

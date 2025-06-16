@@ -21,7 +21,9 @@ export default function CategoryTranslator() {
 
     const apiKey = "import.meta.env.VITE_GEMINI_API_KEY";
     const prompt =
-      `Provide the equivalent Amazon KDP category path in ${language} for: ${path}`;
+      `You are an expert publisher specialized in marketing and KDP. ` +
+      `Give the three closest equivalent Amazon KDP category paths in ${language} for: ${path}. ` +
+      `Format each option as [Cat1,Cat2,Cat3].`;
 
     try {
       setLoading(true);

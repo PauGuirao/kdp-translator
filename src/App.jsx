@@ -1,73 +1,50 @@
-import { useState, useEffect } from "react";
-import categoryData from "./categories.json";
+import { useState } from "react";
 import "./App.css";
 
 export default function CategoryTranslator() {
-  const [selectedCategory, setSelectedCategory] = useState("");
   const [language, setLanguage] = useState("de");
-  const [categories, setCategories] = useState([]);
-  const [subCategory1, setSubCategory1] = useState("");
-  const [subCategory2, setSubCategory2] = useState("");
-  const [subCategory3, setSubCategory3] = useState("");
-  const [options1, setOptions1] = useState([]);
-  const [options2, setOptions2] = useState([]);
-  const [options3, setOptions3] = useState([]);
+  const [levels, setLevels] = useState(["", "", "", ""]);
+  const [result, setResult] = useState("");
+  const [loading, setLoading] = useState(false);
 
-  useEffect(() => {
-    const categoryKeys = Object.keys(categoryData);
-    setCategories(categoryKeys);
-  }, []);
+  const handleChange = (index, value) => {
+    setLevels((prev) => {
+      const updated = [...prev];
+      updated[index] = value;
+      return updated;
+    });
+  };
 
-  const getFirstLang = (cat) => Object.keys(categoryData[cat] || {})[0];
+  const translate = async () => {
+    const path = levels.filter(Boolean).join(" > ");
+    if (!path) return;
 
-  useEffect(() => {
-    if (!selectedCategory) {
-      setOptions1([]);
-      return;
+    const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+    const prompt =
+      `Provide the equivalent Amazon KDP category path in ${language} for: ${path}`;
+
+    try {
+      setLoading(true);
+      const response = await fetch(
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${apiKey}`,
+        {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({
+            contents: [{ parts: [{ text: prompt }] }],
+          }),
+        },
+      );
+      const data = await response.json();
+      const text =
+        data.candidates?.[0]?.content?.parts?.[0]?.text || "N/A";
+      setResult(text);
+    } catch (err) {
+      console.error(err);
+      setResult("Error retrieving translation");
+    } finally {
+      setLoading(false);
     }
-    const lang = getFirstLang(selectedCategory);
-    const children = categoryData[selectedCategory]?.[lang]?.children || {};
-    setOptions1(Object.keys(children));
-  }, [selectedCategory]);
-
-  useEffect(() => {
-    if (!selectedCategory || !subCategory1) {
-      setOptions2([]);
-      return;
-    }
-    const lang = getFirstLang(selectedCategory);
-    const child =
-      categoryData[selectedCategory]?.[lang]?.children?.[subCategory1] || {};
-    setOptions2(Object.keys(child.children || {}));
-  }, [selectedCategory, subCategory1]);
-
-  useEffect(() => {
-    if (!selectedCategory || !subCategory1 || !subCategory2) {
-      setOptions3([]);
-      return;
-    }
-    const lang = getFirstLang(selectedCategory);
-    const child =
-      categoryData[selectedCategory]?.[lang]?.children?.[subCategory1]?.children?.[
-        subCategory2
-      ] || {};
-    setOptions3(Object.keys(child.children || {}));
-  }, [selectedCategory, subCategory1, subCategory2]);
-
-  const getTranslated = (level) => {
-    const path = [subCategory1, subCategory2, subCategory3];
-    let current = categoryData[selectedCategory]?.[language];
-    if (!current) return "N/A";
-    if (level === 1) return current.label;
-    current = current.children?.[path[0]];
-    if (!current) return "N/A";
-    if (level === 2) return current[language] || "N/A";
-    current = current.children?.[path[1]];
-    if (!current) return "N/A";
-    if (level === 3) return current[language] || "N/A";
-    current = current.children?.[path[2]];
-    if (!current) return "N/A";
-    return current[language] || "N/A";
   };
 
   return (
@@ -88,119 +65,29 @@ export default function CategoryTranslator() {
           </select>
         </div>
 
-        <div className="category-row">
-          <div className="form-group">
-            <label>Level 1 (EN)</label>
-            <select
-              className="form-control"
-              value={selectedCategory}
-              onChange={(e) => {
-                setSelectedCategory(e.target.value);
-                setSubCategory1("");
-                setSubCategory2("");
-                setSubCategory3("");
-              }}
-            >
-              <option value="">Select...</option>
-              {categories.map((cat) => (
-                <option key={cat} value={cat}>{cat}</option>
-              ))}
-            </select>
-          </div>
-
-            <div className="arrow">→</div>
-            <div className="translation-group">
-              <div className="result-title">Translated Category Level 1:</div>
-              <div className="result-box">{getTranslated(1)}</div>
-            </div>
-
-        </div>
-
-        {options1.length > 0 && (
-          <div className="category-row">
+        {levels.map((lvl, idx) => (
+          <div className="category-row" key={idx}>
             <div className="form-group">
-              <label>Level 2 (EN)</label>
-              <select
+              <label>{`Level ${idx + 1} (EN)`}</label>
+              <input
                 className="form-control"
-                value={subCategory1}
-                onChange={(e) => {
-                  setSubCategory1(e.target.value);
-                  setSubCategory2("");
-                  setSubCategory3("");
-                }}
-              >
-                <option value="">Select...</option>
-                {options1.map((opt) => (
-                  <option key={opt} value={opt}>{opt}</option>
-                ))}
-              </select>
+                type="text"
+                value={lvl}
+                onChange={(e) => handleChange(idx, e.target.value)}
+                placeholder={`Level ${idx + 1}`}
+              />
             </div>
-            {subCategory1 && (
-              <>
-                <div className="arrow">→</div>
-                <div className="translation-group">
-                  <div className="result-title">Translated Category Level 2:</div>
-                  <div className="result-box">{getTranslated(2)}</div>
-                </div>
-              </>
-            )}
           </div>
-        )}
+        ))}
 
-        {options2.length > 0 && (
-          <div className="category-row">
-            <div className="form-group">
-              <label>Level 3 (EN)</label>
-              <select
-                className="form-control"
-                value={subCategory2}
-                onChange={(e) => {
-                  setSubCategory2(e.target.value);
-                  setSubCategory3("");
-                }}
-              >
-                <option value="">Select...</option>
-                {options2.map((opt) => (
-                  <option key={opt} value={opt}>{opt}</option>
-                ))}
-              </select>
-            </div>
-            {subCategory2 && (
-              <>
-                <div className="arrow">→</div>
-                <div className="translation-group">
-                  <div className="result-title">Translated Category Level 3:</div>
-                  <div className="result-box">{getTranslated(3)}</div>
-                </div>
-              </>
-            )}
-          </div>
-        )}
+        <button className="search-button" onClick={translate} disabled={loading}>
+          {loading ? "Loading..." : "Search"}
+        </button>
 
-        {options3.length > 0 && (
-          <div className="category-row">
-            <div className="form-group">
-              <label>Category Level 4 (EN)</label>
-              <select
-                className="form-control"
-                value={subCategory3}
-                onChange={(e) => setSubCategory3(e.target.value)}
-              >
-                <option value="">Select...</option>
-                {options3.map((opt) => (
-                  <option key={opt} value={opt}>{opt}</option>
-                ))}
-              </select>
-            </div>
-            {subCategory3 && (
-              <>
-                <div className="arrow">→</div>
-                <div className="translation-group">
-                  <div className="result-title">Translated Category Level 4:</div>
-                  <div className="result-box">{getTranslated(4)}</div>
-                </div>
-              </>
-            )}
+        {result && (
+          <div className="translation-group">
+            <div className="result-title">Result</div>
+            <div className="result-box">{result}</div>
           </div>
         )}
       </div>

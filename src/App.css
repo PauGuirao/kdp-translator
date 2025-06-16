@@ -135,6 +135,10 @@
   margin: 0;
 }
 
+.search-button {
+  margin-top: 1rem;
+}
+
 .arrow {
   color: #fff;
   font-size: 1.25rem;

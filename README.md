@@ -1,12 +1,24 @@
-# React + Vite
+# KDP Translator
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This project is a small React application built with Vite. It translates Amazon KDP category paths into the equivalent path for a selected marketplace using the Google Gemini API.
 
-Currently, two official plugins are available:
+## Setup
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+Install dependencies and provide your Google Gemini API key in a `.env` file at the project root:
 
-## Expanding the ESLint configuration
+```bash
+npm install
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# .env
+VITE_GEMINI_API_KEY=your-gemini-key
+```
+
+## Development
+
+Run the development server with hot reload:
+
+```bash
+npm run dev
+```
+
+The application allows entering up to four category levels in English and will query Gemini for the translated path when clicking **Search**.

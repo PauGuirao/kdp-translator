@@ -56,46 +56,50 @@ export default function CategoryTranslator() {
     <div className="category-translator-container">
       <h1 className="category-translator-title">KDP Category Translator</h1>
       <div className="category-grid">
-        <div className="language-select">
-          <label>Select Language</label>
-          <select
-            className="form-control"
-            value={language}
-            onChange={(e) => setLanguage(e.target.value)}
-          >
-            <option value="de">German</option>
-            <option value="es">Spanish</option>
-            <option value="fr">French</option>
-            <option value="it">Italian</option>
-          </select>
+        <div className="left-column">
+          {levels.map((lvl, idx) => (
+            <div className="category-row" key={idx}>
+              <div className="form-group">
+                <label>{`Level ${idx + 1} (EN)`}</label>
+                <input
+                  className="form-control"
+                  type="text"
+                  value={lvl}
+                  onChange={(e) => handleChange(idx, e.target.value)}
+                  placeholder={`Level ${idx + 1}`}
+                />
+              </div>
+            </div>
+          ))}
         </div>
 
-        {levels.map((lvl, idx) => (
-          <div className="category-row" key={idx}>
-            <div className="form-group">
-              <label>{`Level ${idx + 1} (EN)`}</label>
-              <input
-                className="form-control"
-                type="text"
-                value={lvl}
-                onChange={(e) => handleChange(idx, e.target.value)}
-                placeholder={`Level ${idx + 1}`}
-              />
+        <div className="right-column">
+          <div className="language-select">
+            <label>Select Language</label>
+            <select
+              className="form-control"
+              value={language}
+              onChange={(e) => setLanguage(e.target.value)}
+            >
+              <option value="de">German</option>
+              <option value="es">Spanish</option>
+              <option value="fr">French</option>
+              <option value="it">Italian</option>
+            </select>
+          </div>
+
+          {result && (
+            <div className="translation-group">
+              <div className="result-title">Result</div>
+              <div className="result-box">{result}</div>
             </div>
-          </div>
-        ))}
-
-        <button className="search-button" onClick={translate} disabled={loading}>
-          {loading ? "Loading..." : "Search"}
-        </button>
-
-        {result && (
-          <div className="translation-group">
-            <div className="result-title">Result</div>
-            <div className="result-box">{result}</div>
-          </div>
-        )}
+          )}
+        </div>
       </div>
+
+      <button className="search-button" onClick={translate} disabled={loading}>
+        {loading ? "Loading..." : "Search"}
+      </button>
       <footer className="footer">
         Created by{' '}
         <a href="https://twitter.com/CactusGuica" target="_blank" rel="noopener noreferrer">

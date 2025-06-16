@@ -4,7 +4,7 @@ import "./App.css";
 export default function CategoryTranslator() {
   const [language, setLanguage] = useState("de");
   const [levels, setLevels] = useState(["", "", "", ""]);
-  const [result, setResult] = useState("");
+  const [results, setResults] = useState(["", "", ""]);
   const [loading, setLoading] = useState(false);
 
   const handleChange = (index, value) => {
@@ -42,11 +42,19 @@ export default function CategoryTranslator() {
       );
       const data = await response.json();
       const text =
-        data.candidates?.[0]?.content?.parts?.[0]?.text || "N/A";
-      setResult(text);
+        data.candidates?.[0]?.content?.parts?.[0]?.text || "";
+
+      const opts = [];
+      const regex = /Option\s*\d+[:.-]\s*(.*)/gi;
+      let match;
+      while ((match = regex.exec(text)) && opts.length < 3) {
+        opts.push(match[1].trim());
+      }
+      while (opts.length < 3) opts.push("");
+      setResults(opts);
     } catch (err) {
       console.error(err);
-      setResult("Error retrieving translation");
+      setResults(["Error", "retrieving", "translation"]);
     } finally {
       setLoading(false);
     }
@@ -88,12 +96,16 @@ export default function CategoryTranslator() {
             </select>
           </div>
 
-          {result && (
-            <div className="translation-group">
-              <div className="result-title">Result</div>
-              <div className="result-box">{result}</div>
+          <div className="translation-group">
+            <div className="result-title">Result</div>
+            <div className="result-options">
+              {results.map((res, idx) => (
+                <div key={idx} className="result-box">
+                  {res || "-"}
+                </div>
+              ))}
             </div>
-          )}
+          </div>
         </div>
       </div>
 

@@ -19,14 +19,14 @@ export default function CategoryTranslator() {
     const path = levels.filter(Boolean).join(" > ");
     if (!path) return;
 
-    const apiKey = import.meta.env.VITE_GEMINI_API_KEY;
+    const apiKey = "import.meta.env.VITE_GEMINI_API_KEY";
     const prompt =
       `Provide the equivalent Amazon KDP category path in ${language} for: ${path}`;
 
     try {
       setLoading(true);
       const response = await fetch(
-        `https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:generateContent?key=${apiKey}`,
+        `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`,
         {
           method: "POST",
           headers: { "Content-Type": "application/json" },
